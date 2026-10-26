@@ -27,6 +27,7 @@ Mini Projeto — QAVDBI2026/14
 3. Rode o script:
    ```bash
    python Miniprojeto_GustavoMartins_QAVDBI2026_14.py
+   
    commit 1 — init: Adicionado notebook base com esqueleto do projeto e seções principais.
 
 commit 2 — data: Inclusão do carregamento de dados e primeiras rotinas de limpeza.
