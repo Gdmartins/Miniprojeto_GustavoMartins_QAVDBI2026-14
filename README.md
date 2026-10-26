@@ -49,6 +49,8 @@ https://colab.research.google.com/drive/1gYkbCAC4JUWqND_FUxr3ecFG9q04OIPe?usp=sh
 
 ### Segue Link do repositório principal do projeto
 
+
+
 ## Código estrutural dos dados com a resolução
 
 ### Exemplo 1: vendas por categoria (soma de valor)
