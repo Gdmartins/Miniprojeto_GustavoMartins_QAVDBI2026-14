@@ -26,10 +26,10 @@ Mini Projeto — QAVDBI2026/14
 2. Instale dependências (ex.: `pip install -r requirements.txt`) — se o arquivo `requirements.txt` não existir, instale manualmente as bibliotecas usadas no notebook.
 3. Rode o script:
    ```bash
-   python Miniprojeto_GustavoMartins_QAVDBI2026_14.py.
+   python Miniprojeto_GustavoMartins_QAVDBI2026_14.py .
 
-   
-   commit 1 — init: Adicionado notebook base com esqueleto do projeto e seções principais.
+
+commit 1 — init: Adicionado notebook base com esqueleto do projeto e seções principais.
 
 commit 2 — data: Inclusão do carregamento de dados e primeiras rotinas de limpeza.
 
