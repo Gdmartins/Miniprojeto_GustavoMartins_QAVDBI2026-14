@@ -46,3 +46,26 @@ commit 6 — docs: Adição de README e comentários explicativos no notebook.
 ### Segue Link do arquivo com a lógica desenvolvida 
 
 https://colab.research.google.com/drive/1gYkbCAC4JUWqND_FUxr3ecFG9q04OIPe?usp=sharing
+
+## Código estrutural dos dados com a resolução
+
+for t in conclusoes:
+        print(t)
+
+def main():
+    df = carregar_dados(DATA_PATH)
+    verificar_problemas_basicos(df)
+    df_limpo = limpeza_minima(df)
+    s_filhos = estatisticas_filhos(df_limpo)
+    exploracoes_agrupamento(df_limpo)
+    conclusoes_e_proximos_passos(df, df_limpo)
+
+    # Opcional: salvar versão limpa
+    try:
+        df_limpo.to_csv("Varejo_limpo_minimo.csv", index=False)
+        print("\nArquivo 'Varejo_limpo_minimo.csv' salvo com a versão limpa (mínima).")
+    except Exception as e:
+        print("Não foi possível salvar arquivo limpo:", e)
+
+if __name__ == "__main__":
+    main()
