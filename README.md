@@ -49,7 +49,7 @@ https://colab.research.google.com/drive/1gYkbCAC4JUWqND_FUxr3ecFG9q04OIPe?usp=sh
 
 ### Segue Link do repositório principal do projeto
 
-https://github.com/Gdmartins/Miniprojeto_GustavoMartins_QAVDBI2026-14/blob/692003955c83b52b9dff5d3889bdc0a17767cc87/README.md
+https://github.com/Gdmartins/Miniprojeto_GustavoMartins_QAVDBI2026-14/tree/main
 
 ## Código estrutural dos dados com a resolução
 
