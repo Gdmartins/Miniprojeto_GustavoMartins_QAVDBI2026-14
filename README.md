@@ -49,7 +49,7 @@ https://colab.research.google.com/drive/1gYkbCAC4JUWqND_FUxr3ecFG9q04OIPe?usp=sh
 
 ## Código estrutural dos dados com a resolução
 
-# Exemplo 1: vendas por categoria (soma de valor)
+### Exemplo 1: vendas por categoria (soma de valor)
     # Identificar colunas de categoria e valor
     cat_cols = [c for c in df.columns if 'categoria' in c.lower() or 'cat' in c.lower() or 'segmento' in c.lower() or 'categoria_produto' in c.lower()]
     valor_cols = [c for c in df.columns if any(k in c.lower() for k in ['valor','preco','amount','price','total'])]
