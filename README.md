@@ -42,3 +42,5 @@ commit 5 — eval: Métricas de avaliação e visualizações básicas.
 commit 6 — docs: Adição de README e comentários explicativos no notebook.
 
 **commit final** —release`: Ajustes finais e verificação de execução completa no Colab.
+
+### Segue Link do arquivo da lógica desenvolvida  
