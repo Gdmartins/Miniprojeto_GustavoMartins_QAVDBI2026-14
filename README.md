@@ -49,3 +49,62 @@ https://colab.research.google.com/drive/1gYkbCAC4JUWqND_FUxr3ecFG9q04OIPe?usp=sh
 
 ## Código estrutural dos dados com a resolução
 
+# Exemplo 1: vendas por categoria (soma de valor)
+    # Identificar colunas de categoria e valor
+    cat_cols = [c for c in df.columns if 'categoria' in c.lower() or 'cat' in c.lower() or 'segmento' in c.lower() or 'categoria_produto' in c.lower()]
+    valor_cols = [c for c in df.columns if any(k in c.lower() for k in ['valor','preco','amount','price','total'])]
+    print("Colunas de categoria detectadas:", cat_cols)
+    print("Colunas de valor detectadas:", valor_cols)
+
+    if cat_cols and valor_cols:
+        cat = cat_cols[0]
+        val = valor_cols[0]
+        grp = df.groupby(cat)[val].agg(['sum','count','mean']).sort_values('sum', ascending=False)
+        print(f"\nVendas por {cat} (soma, contagem, média):")
+        print(grp.head(10))
+    else:
+        print("Não foi possível identificar colunas de categoria/valor automaticamente para o agrupamento 1.")
+
+    # Exemplo 2: clientes que mais compram (por cliente_id ou nome)
+    cliente_cols = [c for c in df.columns if 'cliente' in c.lower() or 'cliente_id' in c.lower() or 'customer' in c.lower()]
+    if cliente_cols and valor_cols:
+        cliente = cliente_cols[0]
+        val = valor_cols[0]
+        top_clientes = df.groupby(cliente)[val].agg(['sum','count']).sort_values('sum', ascending=False).head(10)
+        print(f"\nTop 10 clientes por valor total de compras (coluna usada: {cliente}):")
+        print(top_clientes)
+    else:
+        print("Não foi possível identificar colunas de cliente/valor automaticamente para o agrupamento 2.")
+
+    # Exemplo 3 (opcional): vendas por gênero (se existir) e por mês
+    genero_cols = [c for c in df.columns if 'genero' in c.lower() or 'sexo' in c.lower()]
+    data_cols = [c for c in df.columns if df[c].dtype == 'datetime64[ns]']
+    if genero_cols and valor_cols:
+        g = genero_cols[0]
+        v = valor_cols[0]
+        grp_gen = df.groupby(g)[v].agg(['sum','count']).sort_values('sum', ascending=False)
+        print(f"\nVendas por {g}:")
+        print(grp_gen)
+    else:
+        print("Coluna de gênero não detectada automaticamente.")
+
+    if data_cols and valor_cols:
+        d = data_cols[0]
+        v = valor_cols[0]
+        df['ano_mes'] = df[d].dt.to_period('M')
+        vendas_mes = df.groupby('ano_mes')[v].sum().sort_index()
+        print("\nVendas por mês (soma):")
+        print(vendas_mes.head(12))
+    else:
+        print("Coluna de data em formato datetime não detectada para análise temporal.")
+
+def conclusoes_e_proximos_passos(df_original, df_limpo):
+    """Produz um bloco de conclusões (3-6 tópicos)."""
+    print("\n=== Conclusões e próximos passos ===")
+    conclusoes = [
+        "1) Qualidade inicial: a base apresenta nulos e duplicatas; é necessário revisar colunas essenciais antes de análises críticas.",
+        "2) Limpeza aplicada: removemos linhas com nulos em colunas essenciais e imputamos número de filhos com mediana; essa escolha preserva amostra e reduz viés por outliers.",
+        "3) Insights operacionais iniciais: categorias X (ver output de agrupamento) concentram a maior parte do faturamento; poucos clientes respondem por grande parcela das vendas (efeito Pareto provável).",
+        "4) Problemas remanescentes: possíveis registros com datas inválidas convertidas para NaT; valores negativos ou outliers em colunas de valor precisam de investigação manual.",
+        "5) Próximos passos recomendados: validar chaves (IDs de cliente/produto), enriquecer dados demográficos, e criar dashboards com séries temporais e cohort analysis para entender retenção."
+    ]
