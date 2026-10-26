@@ -43,4 +43,6 @@ commit 6 — docs: Adição de README e comentários explicativos no notebook.
 
 **commit final** —release`: Ajustes finais e verificação de execução completa no Colab.
 
-### Segue Link do arquivo da lógica desenvolvida  
+### Segue Link do arquivo com a lógica desenvolvida 
+
+https://colab.research.google.com/drive/1gYkbCAC4JUWqND_FUxr3ecFG9q04OIPe?usp=sharing
